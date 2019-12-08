@@ -1,0 +1,246 @@
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+hr {
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: transparent;;
+}
+
+.sidebar {
+  z-index: 99999;
+  position: fixed;
+}
+
+.topbar {
+  position: fixed;
+  padding-left: 224px;
+  height: auto;
+
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 999;
+  .navbar {
+    padding: 8px 0;
+  }
+  .nav-item .nav-link {
+    height: 3.375rem;
+
+  }
+  .layui-tab {
+    padding: 0;
+    margin: 0;
+  }
+
+}
+
+//tab标签栏
+.admin-page-tabs {
+  height: 40px;
+  line-height: 40px;
+  padding: 0 80px 0 40px;
+  background-color: #fff;
+  box-sizing: border-box;
+  border-top: 1px solid #ededed;
+  position: relative;
+  ul {
+    margin-bottom: 0;
+  }
+
+  .admin-tabs-control {
+    position: absolute;
+    top: 0;
+    width: 40px;
+    height: 100%;
+    text-align: center;
+    cursor: pointer;
+    transition: all .3s;
+    -webkit-transition: all .3s;
+    box-sizing: border-box;
+    border-left: 1px solid #f6f6f6;
+  }
+  //左边
+  .layui-icon-prev {
+    left: 0;
+    border-left: none;
+    border-right: 1px solid #f6f6f6;
+  }
+  .layui-icon-next {
+    right: 40px;
+  }
+  .layui-icon-down {
+    right: 0;
+  }
+  .layui-tab {
+    margin: 0;
+    overflow: hidden;
+  }
+  .layui-tab-title {
+
+    position: relative;
+    left: 0;
+    height: 40px;
+    white-space: nowrap;
+    font-size: 0;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    transition: all .2s;
+    -webkit-transition: all .2s;
+  }
+  .layui-tab-title li {
+    min-width: 0;
+    line-height: 39px;
+    max-width: 160px;
+    text-overflow: ellipsis;
+    padding-right: 40px;
+    overflow: hidden;
+    border-right: 1px solid #f6f6f6;
+    vertical-align: top;
+    box-sizing: border-box;
+    position: relative;
+  }
+  .layui-tab-title li:first-child {
+    padding-right: 15px;
+  }
+  .layui-tab-title li:first-child .layui-tab-close {
+    display: none;
+  }
+  //关闭
+  .layui-tab-title li .layui-tab-close {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    margin: -7px 0 0;
+    width: 16px;
+    height: 16px;
+    line-height: 16px;
+    border-radius: 50%;
+    font-size: 12px;
+  }
+
+  //选中
+  .layui-tab-title li.layui-this, .layadmin-pagetabs .layui-tab-title li:hover {
+    background-color: #f8f9fc;
+    span {
+      color: #000;
+    }
+  }
+  .layui-tab-title li:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    border-radius: 0;
+    background-color: #292B34;
+    transition: all .3s;
+    -webkit-transition: all .3s;
+  }
+  .layui-tab-title li.layui-this:after {
+    width: 100%;
+    border: none;
+    height: 2px;
+    background-color: #4e73df;
+  }
+  .admin-tabs-select.layui-nav {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    background: 0 0;
+  }
+  .admin-tabs-select.layui-nav .layui-nav-item {
+    line-height: 40px;
+  }
+  .admin-tabs-select.layui-nav .layui-nav-child {
+    top: 40px;
+    left: auto;
+    right: 0;
+  }
+  .layui-nav-child dd {
+    position: relative;
+    cursor: pointer;
+  }
+  .admin-tabs-select.layui-nav .layui-nav-item > a {
+    height: 40px;
+    color: #666;
+  }
+  .admin-tabs-select.layui-nav .layui-nav-more {
+    display: none;
+  }
+  .admin-tabs-select.layui-nav .layui-nav-item a {
+
+    text-underline: none;
+
+  }
+
+
+}
+
+.layout-content {
+
+  position: fixed;
+  top: 130px;
+  left: 240px;
+  bottom: 0;
+
+  -webkit-transition: padding 0.3s;
+  transition: padding 0.3s;
+
+}
+
+.admin-tabs-body-item {
+  display: none;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+  iframe {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+  }
+}
+
+//侧边关闭
+.sidebar-toggled {
+  .topbar {
+    padding-left: 104px;
+  }
+  .layout-content {
+    left: 124px;
+  }
+}
+
+//小屏幕时候
+@media screen and (max-width: 800px) {
+  .topbar {
+    padding-left: 104px;
+  }
+  .layout-content {
+    left: 104px;
+  }
+  .sidebar-toggled {
+    .topbar {
+      padding-left: 0rem;
+    }
+    .layout-content {
+      left: 1.5rem;
+    }
+  }
+
+}

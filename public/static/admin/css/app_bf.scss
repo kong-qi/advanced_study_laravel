@@ -1,0 +1,80 @@
+$gray: #333 !default;
+$border: #ededed !default;
+;
+$white: #fff !default;
+$theme-colors: () !default;
+$theme-colors: map-merge(
+                (
+                        "white": $white,
+                ),
+                $theme-colors
+);
+
+hr {
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: transparent;;
+}
+
+// Sidebar Dark
+.sidebar-white {
+  .sidebar-brand {
+    color: $gray;
+  }
+  hr.sidebar-divider {
+    border-top: 1px solid $border;
+  }
+  .sidebar-heading {
+    color: fade-out($gray, 0.6);
+  }
+  .nav-item {
+    .nav-link {
+      color: fade-out($gray, 0.2);
+      i {
+        color: fade-out($gray, 0.7);
+      }
+      &:active,
+      &:focus,
+      &:hover {
+        color: $gray;
+        i {
+          color: $gray;
+        }
+      }
+      // Accordion
+      &[data-toggle="collapse"]::after {
+        color: fade-out($gray, 0.5);
+      }
+    }
+    &.active {
+      .nav-link {
+        color: $gray;
+        i {
+          color: $gray;
+        }
+      }
+    }
+  }
+  // Color the sidebar toggler
+  #sidebarToggle {
+    background-color: fade-out($border, 0.8);
+    &::after {
+      color: fade-out($gray, 0.5);
+    }
+    &:hover {
+      background-color: fade-out($border, 0.75);
+    }
+  }
+  &.toggled {
+    #sidebarToggle::after {
+      color: fade-out($gray, 0.5);
+    }
+  }
+}
+
+@each $color, $value in $theme-colors {
+  .bg-gradient-#{$color} {
+    background-color: $value;
+    //background-image: linear-gradient(180deg, $value 10%, darken($value, 15%) 100%);
+    background-size: cover;
+  }
+}

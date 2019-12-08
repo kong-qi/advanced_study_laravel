@@ -1,0 +1,226 @@
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+hr {
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: transparent;
+}
+
+.sidebar {
+  z-index: 99999;
+  position: fixed;
+}
+
+.topbar {
+  position: fixed;
+  padding-left: 224px;
+  height: auto;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 999;
+}
+.topbar .navbar {
+  padding: 8px 0;
+}
+.topbar .nav-item .nav-link {
+  height: 3.375rem;
+}
+.topbar .layui-tab {
+  padding: 0;
+  margin: 0;
+}
+
+.admin-page-tabs {
+  height: 40px;
+  line-height: 40px;
+  padding: 0 80px 0 40px;
+  background-color: #fff;
+  box-sizing: border-box;
+  border-top: 1px solid #ededed;
+  position: relative;
+}
+.admin-page-tabs ul {
+  margin-bottom: 0;
+}
+.admin-page-tabs .admin-tabs-control {
+  position: absolute;
+  top: 0;
+  width: 40px;
+  height: 100%;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+  box-sizing: border-box;
+  border-left: 1px solid #f6f6f6;
+}
+.admin-page-tabs .layui-icon-prev {
+  left: 0;
+  border-left: none;
+  border-right: 1px solid #f6f6f6;
+}
+.admin-page-tabs .layui-icon-next {
+  right: 40px;
+}
+.admin-page-tabs .layui-icon-down {
+  right: 0;
+}
+.admin-page-tabs .layui-tab {
+  margin: 0;
+  overflow: hidden;
+}
+.admin-page-tabs .layui-tab-title {
+  position: relative;
+  left: 0;
+  height: 40px;
+  white-space: nowrap;
+  font-size: 0;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  transition: all 0.2s;
+  -webkit-transition: all 0.2s;
+}
+.admin-page-tabs .layui-tab-title li {
+  min-width: 0;
+  line-height: 39px;
+  max-width: 160px;
+  text-overflow: ellipsis;
+  padding-right: 40px;
+  overflow: hidden;
+  border-right: 1px solid #f6f6f6;
+  vertical-align: top;
+  box-sizing: border-box;
+  position: relative;
+}
+.admin-page-tabs .layui-tab-title li:first-child {
+  padding-right: 15px;
+}
+.admin-page-tabs .layui-tab-title li:first-child .layui-tab-close {
+  display: none;
+}
+.admin-page-tabs .layui-tab-title li .layui-tab-close {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  margin: -7px 0 0;
+  width: 16px;
+  height: 16px;
+  line-height: 16px;
+  border-radius: 50%;
+  font-size: 12px;
+}
+.admin-page-tabs .layui-tab-title li.layui-this, .admin-page-tabs .layadmin-pagetabs .layui-tab-title li:hover {
+  background-color: #f8f9fc;
+}
+.admin-page-tabs .layui-tab-title li.layui-this span, .admin-page-tabs .layadmin-pagetabs .layui-tab-title li:hover span {
+  color: #000;
+}
+.admin-page-tabs .layui-tab-title li:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  border-radius: 0;
+  background-color: #292B34;
+  transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+}
+.admin-page-tabs .layui-tab-title li.layui-this:after {
+  width: 100%;
+  border: none;
+  height: 2px;
+  background-color: #4e73df;
+}
+.admin-page-tabs .admin-tabs-select.layui-nav {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  background: 0 0;
+}
+.admin-page-tabs .admin-tabs-select.layui-nav .layui-nav-item {
+  line-height: 40px;
+}
+.admin-page-tabs .admin-tabs-select.layui-nav .layui-nav-child {
+  top: 40px;
+  left: auto;
+  right: 0;
+}
+.admin-page-tabs .layui-nav-child dd {
+  position: relative;
+  cursor: pointer;
+}
+.admin-page-tabs .admin-tabs-select.layui-nav .layui-nav-item > a {
+  height: 40px;
+  color: #666;
+}
+.admin-page-tabs .admin-tabs-select.layui-nav .layui-nav-more {
+  display: none;
+}
+.admin-page-tabs .admin-tabs-select.layui-nav .layui-nav-item a {
+  text-underline: none;
+}
+
+.layout-content {
+  position: fixed;
+  top: 130px;
+  left: 240px;
+  bottom: 0;
+  -webkit-transition: padding 0.3s;
+  transition: padding 0.3s;
+}
+
+.admin-tabs-body-item {
+  display: none;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+}
+.admin-tabs-body-item iframe {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.sidebar-toggled .topbar {
+  padding-left: 104px;
+}
+.sidebar-toggled .layout-content {
+  left: 124px;
+}
+
+@media screen and (max-width: 800px) {
+  .topbar {
+    padding-left: 104px;
+  }
+
+  .layout-content {
+    left: 104px;
+  }
+
+  .sidebar-toggled .topbar {
+    padding-left: 0rem;
+  }
+  .sidebar-toggled .layout-content {
+    left: 1.5rem;
+  }
+}
+
+/*# sourceMappingURL=app.css.map */
