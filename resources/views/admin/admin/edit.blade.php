@@ -19,11 +19,11 @@
        ]])
         @include('admin.tpl.form.text',[
             'data'=>[
-            'name'=>'nickname',
-            'title'=>'昵称',
-            'tips'=>'',
-            'value'=>$show->nickname,
-            'rq'=>'rq'
+                'name'=>'nickname',
+                'title'=>'昵称',
+                'tips'=>'',
+                'value'=>$show->nickname,
+                'rq'=>'rq'
         ]])
         @include('admin.tpl.form.text',[
             'data'=>[
@@ -78,7 +78,7 @@
 @endsection
 @section('foot_js')
     <script>
-        layui.use(['index', 'uploader'], function () {
+        layui.use([ 'uploader'], function () {
             var uploader = layui.uploader;
             uploader.one("#thumbUpload");
 

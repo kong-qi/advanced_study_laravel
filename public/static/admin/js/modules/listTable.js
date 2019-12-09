@@ -18,6 +18,15 @@ layui.define(['table', 'form', 'request', 'layerOpen', 'laypage', 'layer', 'layd
 
     }
 
+    /**
+     * 自定义分页
+     * @param objApp 对象
+     * @param url 地址
+     * @param pageconfig 分页配置
+     * @param handleFun 成功分页的操作回调
+     * @param successCallback
+     * @param errorCallback
+     */
     function diyList(objApp, url, pageconfig, handleFun, successCallback, errorCallback) {
         layer.load(3); //风格1的加载
         pageconfig = pageconfig || {};
@@ -41,12 +50,12 @@ layui.define(['table', 'form', 'request', 'layerOpen', 'laypage', 'layer', 'layd
                 layout: laypageparams.layout,
                 theme: "#62a8ea",
                 jump: function (obj, first) {
-                    if (typeof(handleFun) != "function" && typeof(successCallback) == "function") {
+                    if (typeof (handleFun) != "function" && typeof (successCallback) == "function") {
                         return successCallback(obj, first);
                     }
 
                     if (first) {
-                        if (typeof(handleFun) == "function") {
+                        if (typeof (handleFun) == "function") {
                             return handleFun(data);
                         } else {
                             return $(".tuku-list").empty().append(data.contents);
@@ -69,7 +78,7 @@ layui.define(['table', 'form', 'request', 'layerOpen', 'laypage', 'layer', 'layd
                                 return false;
                             }
 
-                            if (typeof(handleFun) == "function") {
+                            if (typeof (handleFun) == "function") {
 
                                 return handleFun(tdata);
                             } else {
@@ -95,9 +104,10 @@ layui.define(['table', 'form', 'request', 'layerOpen', 'laypage', 'layer', 'layd
 
     /**
      * 列表表格渲染
-     * @param url
-     * @param cols
-     * @param config
+     * @param url 地址
+     * @param cols 字段栏目
+     * @param config 配置
+     * @param extendFun 扩展事件监听方法
      */
     function listTableRender(url, cols, config, extendFun) {
         config = config || {};
@@ -140,7 +150,9 @@ layui.define(['table', 'form', 'request', 'layerOpen', 'laypage', 'layer', 'layd
     }
 
     /**
-     * 监听编辑
+     * 表哥内事件监听
+     * @param extendFun 扩展
+     * @param callFun 回调
      */
     function handleListenTable(extendFun, callFun) {
         //监听表操作
@@ -314,7 +326,7 @@ layui.define(['table', 'form', 'request', 'layerOpen', 'laypage', 'layer', 'layd
                 })
             }
             //附加监听表
-            if (typeof(extendFun) == "function") {
+            if (typeof (extendFun) == "function") {
                 return extendFun(obj, $(this));
             }
 
@@ -342,16 +354,14 @@ layui.define(['table', 'form', 'request', 'layerOpen', 'laypage', 'layer', 'layd
             }
 
 
-                req.post(listConfig.edit_field_url, data, function (res) {
-                    layer.msg(res.msg);
-                    if (field == 'sort') {
-                        table.reload('LAY-list-table');
-                    }
-                    //回调
-                    callFun && callFun(res)
-                })
-
-
+            req.post(listConfig.edit_field_url, data, function (res) {
+                layer.msg(res.msg);
+                if (field == 'sort') {
+                    table.reload('LAY-list-table');
+                }
+                //回调
+                callFun && callFun(res)
+            })
 
 
         });
@@ -407,7 +417,7 @@ layui.define(['table', 'form', 'request', 'layerOpen', 'laypage', 'layer', 'layd
             return layer.msg('请选择数据');
         }
         var field = $(this).data('field');
-        var value = $(this).data('value') ;
+        var value = $(this).data('value');
 
         layer.confirm('确定批量操作吗？', function (index) {
 
@@ -416,7 +426,6 @@ layui.define(['table', 'form', 'request', 'layerOpen', 'laypage', 'layer', 'layd
             for (i in checkData) {
                 id.push(checkData[i]['id']);
             }
-
 
 
             //ajax操作
@@ -484,15 +493,18 @@ layui.define(['table', 'form', 'request', 'layerOpen', 'laypage', 'layer', 'layd
         }, callFun);
     }
 
-
+    /**
+     * 顶部事件的组合
+     * @param callFun
+     */
     function handelTopListenTable(callFun) {
 
         var active = {
-            all_del: topDel,
-            add: topAdd,
-            diy_add: topCreate,
-            import: importHandle,
-            handel:doHandel
+            all_del: topDel, //批量删除
+            add: topAdd, //添加
+            diy_add: topCreate, //自定义添加
+            import: importHandle, //导入导出
+            handel: doHandel //其他操作
         };
         $('.layui-btn.kongqi-handel').on('click', function () {
             var type = $(this).data('type');
@@ -509,7 +521,7 @@ layui.define(['table', 'form', 'request', 'layerOpen', 'laypage', 'layer', 'layd
         form.on('submit(LAY-list-search)', function (data) {
 
             var field = data.field;
-           // field.page=1;
+            // field.page=1;
 
             //执行重载
             table.reload('LAY-list-table', {

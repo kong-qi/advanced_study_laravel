@@ -260,7 +260,7 @@ layui.define(['upload', 'laypage', 'form', 'laydate', 'layerOpen', 'layer'], fun
                     oss_type: oss_type
                 })
         })
-        console.log(items);
+        //console.log(items);
         //格式JSON
 
         var json = JSON.stringify(items);
@@ -363,7 +363,7 @@ layui.define(['upload', 'laypage', 'form', 'laydate', 'layerOpen', 'layer'], fun
         return uploadApi(obj, upload_type, screen_type, accept_type, function (res) {
             //找到父
             var parentObj = $(obj).parents(".layui-uploads-pic");
-            console.log(parentObj);
+            //console.log(parentObj);
             //找到图片显示区域
             parentObj.find(".upload-item").addClass('show');
             //图片给值

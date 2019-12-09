@@ -4,25 +4,22 @@
 @endsection
 @section('content')
     @include('admin.'.$controller_base_lower.'.form')
+
     @include('admin.layout.table')
 @endsection
 @section('foot_js')
     @include('admin.layout.ListConfig')
     <script>
 
-        layui.use(['index', 'listTable'], function () {
-            var $ = layui.$
-                , listTable = layui.listTable;
+        layui.use(['listTable'], function () {
+            var listTable = layui.listTable;
             cols = [[
                 {type: 'checkbox'}
                 , {field: 'id', width: 80, title: 'ID', sort: true}
                 , {field: 'thumb', title: '头像', width: 100, templet: '#tpl-user-thumb'}
                 , {field: 'nickname', title: '昵称', edit: 1}
-                , {field: 'account', title: '账号', edit: 1}
-                , {field: 'roles_name', title: '角色',templet:function(d){
-                        return d.roles_arr.join(',');
-                    }}
-                , {
+                , {field: 'account', title: '账号', edit: 1},
+                {
                     field: 'is_checked', title: '状态', templet: function (d) {
                         return layui_switch('is_checked', d)
                     }

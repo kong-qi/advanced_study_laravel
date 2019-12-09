@@ -252,7 +252,7 @@ function SimpleDrawImg(editor) {
 
 
     console.log('加载图片');
-    layui.use(['index', 'uploader'], function () {
+    layui.use([ 'uploader'], function () {
         var uploader = layui.uploader;
 
         uploader.place_editor('image', 1, function (html) {

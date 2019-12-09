@@ -47,7 +47,7 @@
 @endsection
 @section('foot_js')
     <script>
-        layui.use(['index','form','uploader'], function () {
+        layui.use(['form','uploader'], function () {
             var $ = layui.$
                 , jquery = $
                 , form = layui.form

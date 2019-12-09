@@ -46,7 +46,7 @@ class BaseController extends Controller
      */
     protected function insertLog($msg){
 
-        AdminLog::addLog($msg);
+        //AdminLog::addLog($msg);
     }
 
     /**

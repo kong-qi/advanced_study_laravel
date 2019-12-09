@@ -35,7 +35,8 @@ $route->name('admin.')->group(function ($route) {
         'AdminController',
         'AdminRoleController',
         'AdminPermissionController',
-        'CategoryController'
+        'CategoryController',
+        'AdminHomeController'
     ];
     if(env('OPEN_PLUGIN',1))
     {

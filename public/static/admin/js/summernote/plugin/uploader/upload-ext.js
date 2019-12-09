@@ -32,7 +32,7 @@
                     contents: '<i class="layui-icon layui-icon-picture">',
                     tooltip: lang.image.image,
                     click: function () {
-                        layui.use(['index', 'uploader'], function () {
+                        layui.use([ 'uploader'], function () {
                             var uploader = layui.uploader;
                             uploader.place_editor('image',1,function(html){
                                 context.invoke('editor.pasteHTML', html);

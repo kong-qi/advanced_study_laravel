@@ -1,7 +1,7 @@
-layui.define(['layer', 'admin', 'layerOpen', 'uploader', 'laydate','colorpicker','request'], function (exports) {
+layui.define(['layer',  'layerOpen', 'uploader', 'laydate','colorpicker','request'], function (exports) {
     var $ = layui.$;
     var uploader = layui.uploader;
-    var admin = layui.admin;
+
     var custorm = {};
     var layerOpen = layui.layerOpen;
     var laydate = layui.laydate;

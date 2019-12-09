@@ -38,7 +38,7 @@
     @include('admin.layout.configJs')
     <script>
         //每个页面都初始化表单数据和检验表单
-        layui.use(['index', 'form', 'verify','custorm'], function () {
+        layui.use([ 'form', 'verify','custorm'], function () {
             var $ = layui.$
                 , form = layui.form;
 

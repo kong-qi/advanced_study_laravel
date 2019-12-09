@@ -23,9 +23,15 @@
 </head>
 <body>
 
-
-@yield('content')
-
+@section('layui_fluid')
+    <div class="layui-fluid" >
+        <div class="layui-row layui-col-space15">
+            @show
+            @yield('content')
+            @section('layui_fluid_end')
+        </div>
+    </div>
+@show
 
 
 

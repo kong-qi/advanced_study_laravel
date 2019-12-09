@@ -2,36 +2,43 @@
 @section('add_css')
 
 @endsection
-@section('content')
-    <div id="wrapper">
+@section('body')
+    <body class="layui-layout-body">
+    @endsection
+    @section('layui_fluid')
 
-        <!-- Sidebar -->
-        @include('admin.layout.side')
-        <!-- End of Sidebar -->
+    @endsection
+    @section('layui_fluid_end')
 
-        <!-- Content Wrapper -->
-        <div id="content-wrapper" class="d-flex flex-column">
+    @endsection
+    @section('content')
+        <div id="LAY_app">
+            <div class="layui-layout layui-layout-admin">
+            @include('admin.layout.header')
 
-            <!-- Main Content -->
-            <div id="content">
+            <!-- 侧边菜单 -->
 
-                <!-- Topbar -->
-                @include('admin.layout.header')
-                <!-- End of Topbar -->
-                <!-- Begin Page Content -->
-                <div class="layui-body layout-content" id="admin-app-body">
-                    <div class="admin-tabs-body-item layui-show">
-                        <iframe src="{{ admin_url('Home','console') }}" frameborder="0" class="admin-iframe"></iframe>
+            @include('admin.layout.side')
+            <!-- 页面标签 -->
+            @include('admin.layout.tab')
+
+
+            <!-- 主体内容 -->
+                <div class="layui-body" id="LAY_app_body">
+                    <div class="layadmin-tabsbody-item layui-show">
+                        <iframe src="{{ admin_url('Home','console') }}" frameborder="0" width="100%" style="width: 100%"
+                                class="layadmin-iframe"></iframe>
                     </div>
-
                 </div>
-                <!-- /.container-fluid -->
 
+                <!-- 辅助元素，一般用于移动设备下遮罩 -->
+                <div class="layadmin-body-shade" layadmin-event="shade"></div>
             </div>
-
-
         </div>
-        <!-- End of Content Wrapper -->
+    @endsection
+    @section('add_js')
 
-    </div>
+        <script>
+            layui.config().use('index');
+        </script>
 @endsection

@@ -7,6 +7,7 @@ layui.define(['element', 'cacheNav', 'md5'], function (exports) {
     var FILTER_TAB_TBAS = 'admin-layout-tabs';//标签页tabs filter
     var SHOW = 'layui-show';//显示
     var element = layui.element;
+    var $=layui.jquery;
     var tabPage = {
         //记录最近一次点击的页面标签数据
         tabsPage: {},
@@ -293,7 +294,7 @@ layui.define(['element', 'cacheNav', 'md5'], function (exports) {
 
                 if (item && item.href) {
                     item.title=item.title.replace(/ဆ/,'');
-                    console.log('名字1'+item.title);
+                    //console.log('名字1'+item.title);
                     //插入顶部tabs
                     tabPage.openTabsPage(item.href, item.title)
                     cacheNav.setOn(item_key);
@@ -306,8 +307,12 @@ layui.define(['element', 'cacheNav', 'md5'], function (exports) {
 
 
             if (item && item.href) {
-                item.title=item[title].replace(/ဆ/,'');
-                console.log('名字'+item.title);
+                if(typeof item.title !='undefined')
+                {
+                    item.title=item.title.replace(/ဆ/,'');
+                    // console.log('名字'+item.title);
+                }
+
                 tabPage.openTabsPage(item.href, item.title)
             }
 

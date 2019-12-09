@@ -15,6 +15,13 @@ layui.define(['layer','request','table'], function (exports) {
         }
         return false;
     }
+
+    /**
+     * 弹出一个计算长和高进行设置的
+     * @param w
+     * @param h
+     * @returns {any[]}
+     */
     function layuiPx(w,h){
         var config=new Array();
         if(is_mobile())
@@ -55,6 +62,14 @@ layui.define(['layer','request','table'], function (exports) {
         return config;
 
     }
+
+    /**
+     * layui layer 弹窗的一个封装
+     * @param config 配置参数
+     * @param yesFun 按钮1的回调
+     * @param susFuc 成功弹出的回调
+     * @param cacFun 取消的回调
+     */
     function openLayer(config, yesFun, susFuc, cacFun) {
         btn = config.btn || ['确定', '取消'];
         rep_px=layuiPx(config.w,config.h);
@@ -129,6 +144,13 @@ layui.define(['layer','request','table'], function (exports) {
             submit.trigger('click');
         })
     }
+
+    /**
+     * 弹窗打开iframe的方法
+     * @param url 地址
+     * @param config
+     * @param yesFun
+     */
     function openShow(url,config,yesFun){
         var default_config = {
             type: 2,
